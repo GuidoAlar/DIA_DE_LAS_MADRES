@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+    <div class="message">
+      Gracias por todo tu amor, paciencia y cariño.<br>
+      Hoy quiero recordarte lo importante que eres para mí.
+      Espero que este día esté lleno de felicidad,
+      abrazos y muchos momentos bonitos.
+      <br><br>
+      Te quiero muchísimo 💕
+    </div>
+
+    <div class="signature">
+      Con amor, Guido Alarcón 🌸
+    </div>
+
+    <button class="music-btn" id="playMusic">
+      🎵 Reproducir música
+    </button>
+
+  </div>
+
+  <script>
+
+    const music = document.getElementById('music');
+    const btn = document.getElementById('playMusic');
+
+    let playing = false;
+
+    btn.addEventListener('click', ()=>{
+      if(!playing){
+        music.play();
+        btn.textContent = '⏸️ Pausar música';
+        playing = true;
+      }else{
+        music.pause();
+        btn.textContent = '🎵 Reproducir música';
+        playing = false;
+      }
+    });
+
+    function createHeart(){
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '💖';
+
+      heart.style.left = Math.random()*100 + 'vw';
+      heart.style.animationDuration = (4 + Math.random()*5) + 's';
+      heart.style.fontSize = (16 + Math.random()*20) + 'px';
+
+      document.body.appendChild(heart);
+
+      setTimeout(()=>{
+        heart.remove();
+      },9000);
+    }
+
+    setInterval(createHeart, 350);
+
+  </script>
+
+</body>
+</html>
